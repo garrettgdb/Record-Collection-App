@@ -6,66 +6,70 @@
 <title>Brittany and Garrett’s Record Collection</title>
 <style>
 :root{--bg:#faf6ef;--card:#fff;--ink:#2a211b;--mute:#7a6c60;--line:#e6dccd;--accent:#b5472d;--accent-ink:#fff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1c1713;--card:#272019;--ink:#f1e8dc;--mute:#a69888;--line:#3a3128;--accent:#e0714f;--accent-ink:#1c1713}}
-:root[data-theme="dark"]{--bg:#1c1713;--card:#272019;--ink:#f1e8dc;--mute:#a69888;--line:#3a3128;--accent:#e0714f;--accent-ink:#1c1713}
+@media (prefers-color-scheme:dark){:root{--bg:#1c1713;--card:#272019;--ink:#f1e8dc;--mute:#a69888;--line:#3a3128;--accent:#e0714f;--accent-ink:#1c1713}}
 *{box-sizing:border-box}
+[hidden]{display:none!important}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.4 Georgia,'Times New Roman',serif}
+body.guest #f,body.guest .admin,body.guest .rec .ghost{display:none!important}
 main{max-width:760px;margin:0 auto;padding:20px 16px 60px}
+.top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
 h1{margin:0 0 4px;font-size:28px}
+.top .ghost{white-space:nowrap;margin-top:4px}
 .sub{color:var(--mute);margin:0 0 18px;font-family:system-ui,sans-serif;font-size:14px}
 form,.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px}
 form{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:18px;font-family:system-ui,sans-serif}
 label{display:flex;flex-direction:column;font-size:12px;color:var(--mute);gap:4px}
 .full{grid-column:1/-1}
-input,select{font:inherit;font-size:15px;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);width:100%}
+input,select{font:inherit;font-size:16px;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);width:100%}
 button{font:inherit;font-family:system-ui,sans-serif;font-size:15px;padding:9px 14px;border:0;border-radius:8px;background:var(--accent);color:var(--accent-ink);cursor:pointer}
 button.ghost{background:transparent;color:var(--mute);border:1px solid var(--line);padding:5px 9px;font-size:13px}
+button.danger{background:#b3261e;color:#fff}
 .bar{display:flex;gap:8px;margin-bottom:14px;font-family:system-ui,sans-serif}
-.bar input{font-size:16px}
 .sortrow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:14px;font:14px system-ui,sans-serif;color:var(--mute)}
 .sortrow select{width:auto}
-@media (max-width:640px){
-.bar{position:fixed;left:0;right:0;bottom:0;z-index:20;margin:0;padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px));background:var(--card);border-top:1px solid var(--line)}
-main{padding-bottom:110px}
-}
 .shelf{margin-bottom:18px}
 .shelf h2{font-size:15px;margin:0 0 8px;color:var(--accent);text-transform:uppercase;letter-spacing:.08em;font-family:system-ui,sans-serif}
-.rec{display:flex;align-items:center;gap:12px;padding:10px 12px;border-bottom:1px solid var(--line)}
+.rec{display:flex;flex-wrap:wrap;align-items:center;gap:12px;padding:10px 12px;border-bottom:1px solid var(--line)}
 .rec:last-child{border:0}
 .slot{min-width:44px;text-align:center;font:600 13px system-ui,sans-serif;background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:4px 6px}
-.info{flex:1;min-width:0}
+.info{flex:1 1 140px;min-width:0}
 .t{font-weight:bold;overflow-wrap:anywhere}
 .a{color:var(--mute);font-size:14px}
 .empty{color:var(--mute);text-align:center;padding:30px 0;font-family:system-ui,sans-serif}
-[hidden]{display:none!important}
-body.guest #f,body.guest .admin,body.guest .rec .ghost{display:none!important}
-.top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
-.top h1{margin:0 0 4px}
-.top .ghost{white-space:nowrap;margin-top:4px}
-.gate{position:fixed;inset:0;z-index:100;background:var(--bg);display:flex;align-items:center;justify-content:center;padding:20px}
-.ov{position:fixed;inset:0;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;z-index:50;padding:20px}
-.dlg{background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:12px;padding:18px;max-width:340px;width:100%;font-family:system-ui,sans-serif}
-.dlg p{margin:0 0 14px;overflow-wrap:anywhere}
-.dlg .row{display:flex;gap:8px;justify-content:flex-end}
-button.danger{background:#b3261e;color:#fff}
-.rec{flex-wrap:wrap}
-.info{flex-basis:140px}
 .thumb{width:52px;height:52px;border-radius:6px;object-fit:cover;background:var(--bg);border:1px solid var(--line);flex:none}
 .artrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 .artrow .thumb{width:64px;height:64px}
 .artrow label.filebtn{flex-direction:row;font-size:13px;padding:5px 9px;border:1px solid var(--line);border-radius:8px;cursor:pointer}
 .hint{color:var(--mute);font-size:12px;flex-basis:100%}
+.ov{position:fixed;inset:0;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;z-index:50;padding:20px}
+.dlg{background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:12px;padding:18px;max-width:340px;width:100%;font-family:system-ui,sans-serif}
+.dlg p{margin:0 0 14px;overflow-wrap:anywhere}
+.dlg input{margin-bottom:10px}
+.dlg .row{display:flex;gap:8px;justify-content:flex-end}
+@media (max-width:640px){
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:20;margin:0;padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px));background:var(--card);border-top:1px solid var(--line)}
+main{padding-bottom:110px}
+}
 </style>
 </head>
 <body class="guest">
-<div class="gate" id="gate" hidden><div class="dlg"><h1 style="font-size:22px;margin:0 0 12px">Log in</h1><input id="pw" type="password" placeholder="Password" autocomplete="off" style="font-size:16px;margin-bottom:10px"><p id="pwmsg" style="color:var(--accent);font-size:13px;margin:0 0 10px"></p><button type="button" id="pwgo" style="width:100%">Enter</button><button type="button" class="ghost" id="pwcancel" style="width:100%;margin-top:8px">Cancel</button></div></div>
-<main id="app">
+<div class="ov" id="gate" hidden><div class="dlg">
+  <h1 style="font-size:22px;margin:0 0 12px">Log in</h1>
+  <input id="em" type="email" placeholder="Email" autocomplete="username">
+  <input id="pw" type="password" placeholder="Password" autocomplete="current-password">
+  <p id="pwmsg" style="color:var(--accent);font-size:13px;margin:0 0 10px"></p>
+  <div class="row"><button type="button" class="ghost" id="pwcancel">Cancel</button><button type="button" id="pwgo">Log in</button></div>
+</div></div>
+<div class="ov" id="ov" hidden><div class="dlg" role="alertdialog" aria-modal="true"><p id="ovtxt"></p><div class="row"><button type="button" class="ghost" id="ovno">Cancel</button><button type="button" class="danger" id="ovyes">Delete</button></div></div></div>
+<input type="file" id="rowfile" accept="image/*" hidden>
+<input type="file" id="impfile" accept=".xlsx,.xls,.csv" hidden>
+
+<main>
 <div class="top"><h1>Brittany and Garrett’s Record Collection</h1><button type="button" class="ghost" id="loginbtn">Log in</button></div>
 <p class="sub" id="count">Loading…</p>
+<p class="sub" id="status" style="color:var(--accent)"></p>
 
-<div class="bar">
-  <input id="q" type="search" placeholder="Search title, artist, genre or box…">
-</div>
+<div class="bar"><input id="q" type="search" placeholder="Search title, artist, genre or box…"></div>
 
 <form id="f">
   <label class="full">Album title<input id="title" required></label>
@@ -78,7 +82,7 @@ button.danger{background:#b3261e;color:#fff}
     <option>Box 1</option><option>Box 2</option><option>Box 3</option><option>Box 4</option>
     <option>Box 5</option><option>Box 6</option><option>Box 7</option><option>Box 8</option>
   </select></label>
-  <div class="full artrow" id="artrow" hidden>
+  <div class="full artrow">
     <img id="artprev" class="thumb" alt="" hidden>
     <button type="button" class="ghost" id="artfind">Find cover</button>
     <label class="filebtn">Add image<input type="file" id="artfile" accept="image/*" hidden></label>
@@ -98,54 +102,82 @@ button.danger{background:#b3261e;color:#fff}
   Genre
   <select id="gf"><option value="">All genres</option></select>
 </div>
-<div class="sortrow admin"><button type="button" class="ghost" id="impbtn">Import spreadsheet</button><button type="button" class="ghost" id="expbtn">Export spreadsheet</button><input type="file" id="impfile" accept=".xlsx,.xls,.csv" hidden><span id="impmsg"></span></div>
-<div class="ov" id="ov" hidden><div class="dlg" role="alertdialog" aria-modal="true"><p id="ovtxt"></p><div class="row"><button type="button" class="ghost" id="ovno">Cancel</button><button type="button" class="danger" id="ovyes">Delete</button></div></div></div>
-<input type="file" id="rowfile" accept="image/*" hidden>
+<div class="sortrow admin"><button type="button" class="ghost" id="impbtn">Import spreadsheet</button><button type="button" class="ghost" id="expbtn">Export spreadsheet</button><span id="impmsg"></span></div>
 <div id="list"></div>
 </main>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <script>
 (function(){
-  var records = [], editing = null, store = null, art = '', assets = null;
+  // ---- Settings: paste your Supabase publishable (anon) key below ----
+  var SUPABASE_URL = 'https://wgxchgslezwdrhzgbqgd.supabase.co';
+  var SUPABASE_KEY = 'sb_publishable_kD_NWkKtNL-KncFEiNFA6Q_0i6-0ylx';
+  // --------------------------------------------------------------------
+
   var $ = function(id){return document.getElementById(id)};
+  var sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+  var records = [], saved = {}, editing = null, art = '', admin = false, delId = null, pickFor = null;
 
-  function persist(){
-    try{ localStorage.setItem('records', JSON.stringify(records)); }catch(e){}
-    if(store){ try{ store.set({items: records}).catch(function(){}); }catch(e){} }
-  }
-
-  function load(){
-    try{ var s = localStorage.getItem('records'); if(s) records = JSON.parse(s); }catch(e){}
-    render();
-    if(window.claude && claude.use){
-      claude.use('assets').then(function(a){ if(a){ assets = a; $('artrow').hidden = false; render(); } }).catch(function(){});
-      Promise.all([claude.use('db'), claude.use('user')]).then(function(r){
-        var db = r[0], user = r[1];
-        if(!db || !user) return;
-        return user.id().then(function(id){
-          store = db.collection('data/users/' + id).doc('records');
-          return store.get().then(function(snap){
-            if(snap.exists && snap.data() && Array.isArray(snap.data().items)){
-              records = snap.data().items.map(function(r){return Object.assign({}, r)}); render();
-            } else if(records.length){ store.set({items: records}); }
-          });
-        });
-      }).catch(function(){});
-    }
-  }
-
-  function esc(s){var d=document.createElement('div');d.textContent=s;return d.innerHTML}
+  function note(m){ $('status').textContent = m || ''; }
+  function esc(s){var d=document.createElement('div');d.textContent=s==null?'':s;return d.innerHTML}
   var sk = function(s){return (s||'').replace(/^the\s+/i,'')};
   var cmp = function(a,b){return sk(a).localeCompare(sk(b), undefined, {sensitivity:'base'})};
-  var boxNum = function(r){var n = parseInt((r.location||'').replace(/\D/g,''),10); return isNaN(n)?99:n};
 
+  // ---- Data ----
+  function toRow(r){ return {id:r.id,title:r.title,artist:r.artist,year:r.year||null,genre:r.genre||null,location:r.location||null,art:r.art||null}; }
+  function fromRow(d){ return {id:d.id,title:d.title,artist:d.artist,year:d.year||'',genre:d.genre||'',location:d.location||'',art:d.art||''}; }
+
+  function load(){
+    sb.from('records').select('*').order('created_at',{ascending:true}).then(function(res){
+      if(res.error){ note('Could not load the collection: ' + res.error.message); return; }
+      records = res.data.map(fromRow); saved = {};
+      records.forEach(function(r){ saved[r.id] = JSON.stringify(toRow(r)); });
+      render();
+    });
+  }
+
+  function persist(){
+    var up = [], cur = {};
+    records.forEach(function(r){ var s = JSON.stringify(toRow(r)); cur[r.id] = s; if(saved[r.id] !== s) up.push(toRow(r)); });
+    var del = Object.keys(saved).filter(function(id){ return !(id in cur); });
+    var jobs = [];
+    if(up.length) jobs.push(sb.from('records').upsert(up));
+    if(del.length) jobs.push(sb.from('records').delete().in('id', del));
+    if(!jobs.length) return;
+    Promise.all(jobs).then(function(res){
+      var err = res.map(function(x){return x.error}).filter(Boolean)[0];
+      if(err){ note('Could not save: ' + err.message); } else { saved = cur; note(''); }
+    }).catch(function(){ note('Could not save. Check your connection and log in again.'); });
+  }
+
+  // ---- Auth ----
+  function setAdmin(on){ admin = on; document.body.classList.toggle('guest', !on); $('loginbtn').textContent = on ? 'Log out' : 'Log in'; }
+  function closeGate(){ $('gate').hidden = true; $('pw').value = ''; $('pwmsg').textContent = ''; }
+  sb.auth.getSession().then(function(r){ setAdmin(!!(r.data && r.data.session)); });
+  sb.auth.onAuthStateChange(function(ev, session){ setAdmin(!!session); });
+  $('loginbtn').addEventListener('click', function(){
+    if(admin){ sb.auth.signOut(); }
+    else { $('gate').hidden = false; $('em').focus(); }
+  });
+  $('pwcancel').addEventListener('click', closeGate);
+  function signIn(){
+    $('pwmsg').textContent = '';
+    sb.auth.signInWithPassword({email: $('em').value.trim(), password: $('pw').value}).then(function(r){
+      if(r.error){ $('pwmsg').textContent = 'Incorrect email or password.'; } else { closeGate(); }
+    });
+  }
+  $('pwgo').addEventListener('click', signIn);
+  $('pw').addEventListener('keydown', function(e){ if(e.key === 'Enter') signIn(); });
+
+  // ---- Rendering ----
   function rowHtml(r, flat){
-    var meta = esc(r.artist) + (r.year?' \u00b7 '+r.year:'') + (r.genre?' \u00b7 '+esc(r.genre):'');
-    return '<div class="rec">' + (flat?'<div class="slot">'+esc(r.location||'\u2014')+'</div>':'') +
-      (r.art?'<img class="thumb" alt="" src="/_blob/'+esc(r.art)+'">':'')+
+    var meta = esc(r.artist) + (r.year?' · '+esc(r.year):'') + (r.genre?' · '+esc(r.genre):'');
+    return '<div class="rec">' + (flat?'<div class="slot">'+esc(r.location||'—')+'</div>':'') +
+      (r.art?'<img class="thumb" alt="" loading="lazy" src="'+esc(r.art)+'">':'') +
       '<div class="info"><div class="t">'+esc(r.title)+'</div><div class="a">'+meta+'</div></div>'+
-      (assets?'<button class="ghost" data-img="'+r.id+'">'+(r.art?'Change image':'Add image')+'</button>':'')+'<button class="ghost" data-edit="'+r.id+'">Edit</button><button class="ghost" data-del="'+r.id+'">\u2715</button></div>';
+      '<button class="ghost" data-img="'+esc(r.id)+'">'+(r.art?'Change image':'Add image')+'</button>'+
+      '<button class="ghost" data-edit="'+esc(r.id)+'">Edit</button><button class="ghost" data-del="'+esc(r.id)+'">✕</button></div>';
   }
 
   function render(){
@@ -164,7 +196,7 @@ button.danger{background:#b3261e;color:#fff}
     var boxes = new Set(records.map(function(r){return r.location}).filter(Boolean)).size;
     $('count').textContent = records.length + (records.length===1?' record':' records') + ' across ' + boxes + (boxes===1?' box':' boxes');
 
-    if(!shown.length){ $('list').innerHTML = '<div class="empty">'+(records.length?'No matches.':'No records yet. Add your first one above.')+'</div>'; return; }
+    if(!shown.length){ $('list').innerHTML = '<div class="empty">'+(records.length?'No matches.':'No records yet.')+'</div>'; return; }
 
     var mode = $('sort').value;
     if(mode !== 'loc'){
@@ -182,6 +214,12 @@ button.danger{background:#b3261e;color:#fff}
     }).join('');
   }
 
+  // ---- Form ----
+  function showPrev(){
+    $('artprev').hidden = !art; $('artclear').hidden = !art;
+    if(art) $('artprev').src = art; else $('artprev').removeAttribute('src');
+  }
+
   $('f').addEventListener('submit', function(e){
     e.preventDefault();
     if(!$('loc').value){ $('msg').textContent = 'Please choose a box for the Location.'; return; }
@@ -194,103 +232,6 @@ button.danger{background:#b3261e;color:#fff}
     if(editing){ records = records.map(function(r){return r.id===editing?rec:r}); editing = null; $('submit').textContent = 'Add record'; }
     else records = records.concat([rec]);
     persist(); e.target.reset(); art = ''; showPrev(); render(); $('title').focus();
-  });
-
-  function showPrev(){
-    $('artprev').hidden = !art; $('artclear').hidden = !art;
-    if(art) $('artprev').src = '/_blob/' + art; else $('artprev').removeAttribute('src');
-  }
-  function attach(file, done){
-    if(!assets || !file || file.type.indexOf('image/') !== 0) return;
-    if(done) $('count').textContent = 'Uploading image...'; else $('artnote').textContent = 'Uploading...';
-    new Promise(function(res, rej){
-      var fr = new FileReader();
-      fr.onerror = rej;
-      fr.onload = function(){
-        var im = new Image();
-        im.onerror = rej;
-        im.onload = function(){
-          var s = Math.min(1, 400 / Math.max(im.width, im.height)), c = document.createElement('canvas');
-          c.width = Math.round(im.width * s); c.height = Math.round(im.height * s);
-          c.getContext('2d').drawImage(im, 0, 0, c.width, c.height);
-          c.toBlob(function(b){ b ? res(b) : rej(new Error('x')); }, 'image/jpeg', 0.85);
-        };
-        im.src = fr.result;
-      };
-      fr.readAsDataURL(file);
-    }).then(function(b){ return assets.upload(b); })
-      .then(function(r){ if(done) done(r.id); else { art = r.id; showPrev(); $('artnote').textContent = ''; } })
-      .catch(function(){ var m = 'Could not add that image.'; if(done) $('count').textContent = m; else $('artnote').textContent = m; });
-  }
-  $('artfile').addEventListener('change', function(e){ attach(e.target.files[0]); e.target.value = ''; });
-  $('artclear').addEventListener('click', function(){ art = ''; showPrev(); });
-  $('artfind').addEventListener('click', function(){
-    var t = $('title').value.trim(), a = $('artist').value.trim();
-    if(!t || !a){ $('artnote').textContent = 'Enter the title and artist first.'; return; }
-    $('artnote').textContent = 'Save an image from the results, then use Add image (or paste it here).';
-    window.open('https://www.google.com/search?tbm=isch&q=' + encodeURIComponent(a + ' ' + t + ' album cover'), '_blank', 'noopener');
-  });
-  var delId = null;
-  function closeOv(){ $('ov').hidden = true; delId = null; }
-  $('ovno').addEventListener('click', closeOv);
-  $('ov').addEventListener('click', function(e){ if(e.target === $('ov')) closeOv(); });
-  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeOv(); });
-  $('ovyes').addEventListener('click', function(){
-    var id = delId; closeOv();
-    records = records.filter(function(r){return r.id !== id}); persist(); render();
-  });
-
-  function normLoc(v){
-    var n = parseInt(String(v == null ? '' : v).replace(/\D/g, ''), 10);
-    return (n >= 1 && n <= 8) ? 'Box ' + n : '';
-  }
-  $('impbtn').addEventListener('click', function(){ $('impfile').click(); });
-  $('impfile').addEventListener('change', function(e){
-    var f = e.target.files[0]; e.target.value = '';
-    if(!f) return;
-    var msg = $('impmsg');
-    if(!window.XLSX){ msg.textContent = 'Spreadsheet reader did not load. Try reloading the page.'; return; }
-    var fr = new FileReader();
-    fr.onerror = function(){ msg.textContent = 'Could not read that file.'; };
-    fr.onload = function(){
-      try{
-        var wb = XLSX.read(fr.result, {type: 'array'});
-        var ws = wb.Sheets['Records'] || wb.Sheets[wb.SheetNames[0]];
-        var rows = XLSX.utils.sheet_to_json(ws, {defval: ''});
-        var have = new Set(records.map(function(r){return (r.title + '|' + r.artist).toLowerCase()}));
-        var add = [], dup = 0, bad = 0, noloc = 0, stamp = Date.now();
-        rows.forEach(function(row){
-          var o = {};
-          Object.keys(row).forEach(function(k){ o[k.trim().toLowerCase()] = row[k]; });
-          var title = String(o.title || '').trim(), artist = String(o.artist || '').trim();
-          if(!title || !artist){ bad++; return; }
-          var key = (title + '|' + artist).toLowerCase();
-          if(have.has(key)){ dup++; return; }
-          have.add(key);
-          var y = parseInt(o.year, 10), loc = normLoc(o.location);
-          if(!loc) noloc++;
-          add.push({id: String(stamp + add.length), title: title, artist: artist, year: (y >= 1900 && y <= 2100) ? String(y) : '', genre: String(o.genre || '').trim(), location: loc});
-        });
-        if(add.length){ records = records.concat(add); persist(); render(); }
-        msg.textContent = 'Imported ' + add.length + (add.length === 1 ? ' record' : ' records') +
-          (dup ? ', ' + dup + ' skipped as duplicates' : '') + (bad ? ', ' + bad + ' skipped for missing title or artist' : '') +
-          (noloc ? ', ' + noloc + ' with no valid box (shown as Unassigned)' : '') + '.';
-      }catch(err){ msg.textContent = 'Could not read that spreadsheet.'; }
-    };
-    fr.readAsArrayBuffer(f);
-  });
-
-  var pickFor = null;
-  $('rowfile').addEventListener('change', function(e){
-    var f = e.target.files[0], id = pickFor; e.target.value = ''; pickFor = null;
-    attach(f, function(artId){
-      records = records.map(function(r){ if(r.id !== id) return r; var n = Object.assign({}, r); n.art = artId; return n; });
-      persist(); render();
-    });
-  });
-  document.addEventListener('paste', function(e){
-    var items = (e.clipboardData && e.clipboardData.items) || [];
-    for(var i = 0; i < items.length; i++){ if(items[i].type.indexOf('image/') === 0){ attach(items[i].getAsFile()); break; } }
   });
 
   $('q').addEventListener('input', render);
@@ -312,39 +253,109 @@ button.danger{background:#b3261e;color:#fff}
     }
   });
 
-  var OK = ['196c562cb5e78e8cb10c66466868ca8b40ad7b029d8ecef850b717cebe055eb5', 'd8710cb5d8462862cef18a37424c82ec5fbe971c2d91c4ab2e657d2566cbb413'];
-  function sha(s){
-    return crypto.subtle.digest('SHA-256', new TextEncoder().encode(s)).then(function(b){
-      return Array.from(new Uint8Array(b)).map(function(x){ return ('0' + x.toString(16)).slice(-2); }).join('');
-    });
-  }
-  var admin = false;
-  function setAdmin(on){ admin = on; document.body.classList.toggle('guest', !on); $('loginbtn').textContent = on ? 'Log out' : 'Log in'; }
-  function unlock(){ $('gate').hidden = true; $('pw').value = ''; $('pwmsg').textContent = ''; setAdmin(true); }
-  try{ if(localStorage.getItem('rc-unlocked') === '1') setAdmin(true); }catch(e){}
-  function tryPw(){
-    var v = $('pw').value.trim().toLowerCase();
-    if(!window.crypto || !crypto.subtle){ $('pwmsg').textContent = 'This browser cannot check passwords.'; return; }
-    sha(v).then(function(h){
-      if(OK.indexOf(h) > -1){ try{ localStorage.setItem('rc-unlocked', '1'); }catch(e){} unlock(); }
-      else { $('pwmsg').textContent = 'Incorrect password.'; $('pw').select(); }
-    });
-  }
-  $('pwgo').addEventListener('click', tryPw);
-  $('pwcancel').addEventListener('click', function(){ $('gate').hidden = true; $('pw').value = ''; $('pwmsg').textContent = ''; });
-  $('loginbtn').addEventListener('click', function(){
-    if(admin){ try{ localStorage.removeItem('rc-unlocked'); }catch(e){} setAdmin(false); }
-    else { $('gate').hidden = false; $('pw').focus(); }
+  function closeOv(){ $('ov').hidden = true; delId = null; }
+  $('ovno').addEventListener('click', closeOv);
+  $('ov').addEventListener('click', function(e){ if(e.target === $('ov')) closeOv(); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape'){ closeOv(); closeGate(); } });
+  $('ovyes').addEventListener('click', function(){
+    var id = delId; closeOv();
+    records = records.filter(function(r){return r.id !== id}); persist(); render();
   });
-  $('pw').addEventListener('keydown', function(e){ if(e.key === 'Enter') tryPw(); });
 
-  var dl = null;
-  if(window.claude && claude.use){
-    claude.use('downloads').then(function(d){ if(d){ dl = d; $('expbtn').hidden = false; } }).catch(function(){});
+  // ---- Artwork (stored in Supabase Storage bucket "art") ----
+  function uploadImage(file, done, fail){
+    if(!file || file.type.indexOf('image/') !== 0) return;
+    new Promise(function(res, rej){
+      var fr = new FileReader();
+      fr.onerror = rej;
+      fr.onload = function(){
+        var im = new Image();
+        im.onerror = rej;
+        im.onload = function(){
+          var s = Math.min(1, 400 / Math.max(im.width, im.height)), c = document.createElement('canvas');
+          c.width = Math.round(im.width * s); c.height = Math.round(im.height * s);
+          c.getContext('2d').drawImage(im, 0, 0, c.width, c.height);
+          c.toBlob(function(b){ b ? res(b) : rej(new Error('x')); }, 'image/jpeg', 0.85);
+        };
+        im.src = fr.result;
+      };
+      fr.readAsDataURL(file);
+    }).then(function(b){
+      var path = Date.now() + '-' + Math.random().toString(36).slice(2, 8) + '.jpg';
+      return sb.storage.from('art').upload(path, b, {contentType: 'image/jpeg'}).then(function(r){
+        if(r.error) throw r.error;
+        return sb.storage.from('art').getPublicUrl(path).data.publicUrl;
+      });
+    }).then(done).catch(fail);
   }
+  function attach(file){
+    $('artnote').textContent = 'Uploading...';
+    uploadImage(file, function(url){ art = url; showPrev(); $('artnote').textContent = ''; },
+      function(){ $('artnote').textContent = 'Could not add that image. Are you logged in?'; });
+  }
+  $('artfile').addEventListener('change', function(e){ if(e.target.files[0]) attach(e.target.files[0]); e.target.value = ''; });
+  $('artclear').addEventListener('click', function(){ art = ''; showPrev(); });
+  $('artfind').addEventListener('click', function(){
+    var t = $('title').value.trim(), a = $('artist').value.trim();
+    if(!t || !a){ $('artnote').textContent = 'Enter the title and artist first.'; return; }
+    $('artnote').textContent = 'Save an image from the results, then use Add image (or paste it here).';
+    window.open('https://www.google.com/search?tbm=isch&q=' + encodeURIComponent(a + ' ' + t + ' album cover'), '_blank', 'noopener');
+  });
+  $('rowfile').addEventListener('change', function(e){
+    var f = e.target.files[0], id = pickFor; e.target.value = ''; pickFor = null;
+    if(!f) return;
+    note('Uploading image...');
+    uploadImage(f, function(url){
+      records = records.map(function(r){ if(r.id !== id) return r; var n = Object.assign({}, r); n.art = url; return n; });
+      persist(); render(); note('');
+    }, function(){ note('Could not add that image. Are you logged in?'); });
+  });
+  document.addEventListener('paste', function(e){
+    if(!admin) return;
+    var items = (e.clipboardData && e.clipboardData.items) || [];
+    for(var i = 0; i < items.length; i++){ if(items[i].type.indexOf('image/') === 0){ attach(items[i].getAsFile()); break; } }
+  });
+
+  // ---- Import / export ----
+  function normLoc(v){
+    var n = parseInt(String(v == null ? '' : v).replace(/\D/g, ''), 10);
+    return (n >= 1 && n <= 8) ? 'Box ' + n : '';
+  }
+  $('impbtn').addEventListener('click', function(){ $('impfile').click(); });
+  $('impfile').addEventListener('change', function(e){
+    var f = e.target.files[0]; e.target.value = '';
+    if(!f) return;
+    var msg = $('impmsg'), fr = new FileReader();
+    fr.onerror = function(){ msg.textContent = 'Could not read that file.'; };
+    fr.onload = function(){
+      try{
+        var wb = XLSX.read(fr.result, {type: 'array'});
+        var ws = wb.Sheets['Records'] || wb.Sheets[wb.SheetNames[0]];
+        var rows = XLSX.utils.sheet_to_json(ws, {defval: ''});
+        var have = new Set(records.map(function(r){return (r.title + '|' + r.artist).toLowerCase()}));
+        var add = [], dup = 0, bad = 0, noloc = 0, stamp = Date.now();
+        rows.forEach(function(row){
+          var o = {};
+          Object.keys(row).forEach(function(k){ o[k.trim().toLowerCase()] = row[k]; });
+          var title = String(o.title || '').trim(), artist = String(o.artist || '').trim();
+          if(!title || !artist){ bad++; return; }
+          var key = (title + '|' + artist).toLowerCase();
+          if(have.has(key)){ dup++; return; }
+          have.add(key);
+          var y = parseInt(o.year, 10), loc = normLoc(o.location);
+          if(!loc) noloc++;
+          add.push({id: String(stamp + add.length), title: title, artist: artist, year: (y >= 1900 && y <= 2100) ? String(y) : '', genre: String(o.genre || '').trim(), location: loc, art: ''});
+        });
+        if(add.length){ records = records.concat(add); persist(); render(); }
+        msg.textContent = 'Imported ' + add.length + (add.length === 1 ? ' record' : ' records') +
+          (dup ? ', ' + dup + ' skipped as duplicates' : '') + (bad ? ', ' + bad + ' skipped for missing title or artist' : '') +
+          (noloc ? ', ' + noloc + ' with no valid box (shown as Unassigned)' : '') + '.';
+      }catch(err){ msg.textContent = 'Could not read that spreadsheet.'; }
+    };
+    fr.readAsArrayBuffer(f);
+  });
   $('expbtn').addEventListener('click', function(){
     var msg = $('impmsg');
-    if(!window.XLSX){ msg.textContent = 'Export is not available here.'; return; }
     if(!records.length){ msg.textContent = 'Nothing to export yet.'; return; }
     var data = [['Title', 'Artist', 'Year', 'Genre', 'Location']].concat(records.map(function(r){
       return [r.title, r.artist, r.year ? Number(r.year) : '', r.genre || '', r.location || ''];
@@ -353,22 +364,15 @@ button.danger{background:#b3261e;color:#fff}
     ws['!cols'] = [{wch: 38}, {wch: 28}, {wch: 8}, {wch: 18}, {wch: 12}];
     XLSX.utils.book_append_sheet(wb, ws, 'Records');
     var buf = XLSX.write(wb, {bookType: 'xlsx', type: 'array'});
-    var done = function(){ msg.textContent = 'Exported ' + records.length + (records.length === 1 ? ' record.' : ' records.'); };
-    if(dl){
-      dl.save({filename: 'record-collection.xlsx', data: buf}).then(done)
-        .catch(function(err){ if(!err || err.code !== 'declined') msg.textContent = 'Could not export.'; });
-    } else {
-      try{
-        var url = URL.createObjectURL(new Blob([buf], {type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'}));
-        var a = document.createElement('a');
-        a.href = url; a.download = 'record-collection.xlsx';
-        document.body.appendChild(a); a.click(); a.remove();
-        setTimeout(function(){ URL.revokeObjectURL(url); }, 1000);
-        done();
-      }catch(e){ msg.textContent = 'Could not export.'; }
-    }
+    var url = URL.createObjectURL(new Blob([buf], {type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'}));
+    var a = document.createElement('a');
+    a.href = url; a.download = 'record-collection.xlsx';
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(function(){ URL.revokeObjectURL(url); }, 1000);
+    msg.textContent = 'Exported ' + records.length + (records.length === 1 ? ' record.' : ' records.');
   });
 
+  render();
   load();
 })();
 </script>
